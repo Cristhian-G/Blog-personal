@@ -1,0 +1,584 @@
+ /*
+ Elementos gráficos obtenidos dé:
+    https://icon-icons.com/es/pack/modern-web/1880
+    https://coolors.co/palette/e7ecef-274c77-6096ba-a3cef1-8b8c89
+    https://www.fontpair.co/
+    https://prismic-io.translate.goog/blog/css-background-effects?_x_tr_sl=en&_x_tr_tl=es&_x_tr_hl=es&_x_tr_pto=tc&_x_tr_hist=true
+    https://css.glass/
+    https://uiverse.io/
+    https://codepen.io/5t3ph/pen/GRQebrX
+    https://prismic.io/guides/css-animations
+    https://www.youtube.com/watch?v=QeRg4t3I2zc&list=PLm_QG-C_718xldavzam_ZfKksCxzFPHB6&index=1
+    https://www.youtube.com/shorts/gG-UzPilbTg
+    https://www.youtube.com/shorts/qvdpqwbDBM4
+    https://www.youtube.com/shorts/ODyw8sLbp3w
+*/
+
+@font-face {
+    font-family: 'Sen';
+    src: url('../font/Sen/static/Sen-Regular.ttf') format('truetype');
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Sen';
+    src: url('../font/Sen/static/Sen-Bold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+ header {
+    display: flex;
+     text-align: center;
+     justify-content: center;
+     align-items: center;
+
+     height: 100px;
+    /* From https://css.glass */
+    background: rgba(39, 76, 119, 0.22);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+
+     padding: 20px;
+     border-radius: 10px;
+     margin: 20px;
+
+     .logo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color : #E7ECEF;
+        height: 90px;
+        align-items: center;
+        gap: 20px;
+        padding: 20px 20px;
+     }
+ }
+ 
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
+  background-attachment: fixed;
+  overflow: hidden;
+}
+
+.stars {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  background: white;
+  box-shadow: 2vw 5vh 2px white, 10vw 8vh 2px white, 15vw 15vh 1px white,
+    22vw 22vh 1px white, 28vw 12vh 2px white, 32vw 32vh 1px white,
+    38vw 18vh 2px white, 42vw 35vh 1px white, 48vw 25vh 2px white,
+    53vw 42vh 1px white, 58vw 15vh 2px white, 63vw 38vh 1px white,
+    68vw 28vh 2px white, 73vw 45vh 1px white, 78vw 32vh 2px white,
+    83vw 48vh 1px white, 88vw 20vh 2px white, 93vw 52vh 1px white,
+    98vw 35vh 2px white, 5vw 60vh 1px white, 12vw 65vh 2px white,
+    18vw 72vh 1px white, 25vw 78vh 2px white, 30vw 85vh 1px white,
+    35vw 68vh 2px white, 40vw 82vh 1px white, 45vw 92vh 2px white,
+    50vw 75vh 1px white, 55vw 88vh 2px white, 60vw 95vh 1px white,
+    65vw 72vh 2px white, 70vw 85vh 1px white, 75vw 78vh 2px white,
+    80vw 92vh 1px white, 85vw 82vh 2px white, 90vw 88vh 1px white,
+    95vw 75vh 2px white;
+  animation: twinkle 8s infinite linear;
+}
+
+.shooting-star {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, white, transparent);
+  animation: shoot 3s infinite ease-in;
+}
+
+.shooting-star:nth-child(1) {
+  top: 20%;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.shooting-star:nth-child(2) {
+  top: 35%;
+  left: -100px;
+  animation-delay: 1s;
+}
+
+.shooting-star:nth-child(3) {
+  top: 50%;
+  left: -100px;
+  animation-delay: 2s;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(25deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120vw) translateY(50vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+/* Additional twinkling stars with different animation timing */
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: white;
+  box-shadow: 8vw 12vh 2px white, 16vw 18vh 1px white, 24vw 25vh 2px white,
+    33vw 15vh 1px white, 41vw 28vh 2px white, 49vw 35vh 1px white,
+    57vw 22vh 2px white, 65vw 42vh 1px white, 73vw 28vh 2px white,
+    81vw 48vh 1px white, 89vw 32vh 2px white, 97vw 45vh 1px white,
+    3vw 68vh 2px white, 11vw 75vh 1px white, 19vw 82vh 2px white,
+    27vw 88vh 1px white, 35vw 72vh 2px white, 43vw 85vh 1px white,
+    51vw 92vh 2px white, 59vw 78vh 1px white;
+  animation: twinkle 6s infinite linear reverse;
+}
+
+ .navegacion {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* From https://css.glass */
+            background: rgba(96, 150, 186, 0.19);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(3.9px);
+            -webkit-backdrop-filter: blur(3.9px);
+            height: 60px;
+            gap: 20px;
+            align-self: center;
+            padding: 5px 5px;
+            border-radius: 64px;
+            color: white;
+            border: none;
+            font-size: 16px;
+            margin: 20px 20px;
+       }
+
+        /* From Uiverse.io by Allyhere */ 
+        .boton-menu {
+            display: inline-flex;
+            align-items: center;
+            text-align: center;
+            font-family: 'Sen', sans-serif;
+            vertical-align: center;
+            justify-content: center;
+            gap: 15px;
+        --clr-font-main: hsla(0 0% 20% / 100);
+        --btn-bg-1: #6096BA;
+        --btn-bg-2: #274C77;
+        --btn-bg-color: hsla(360 100% 100% / 1);
+        --radii: 1.5em;
+        cursor: pointer;
+        padding: 0.9em 1.4em;
+        min-width: 175px;
+        min-height: 42px;
+        max-width: 200px;
+        max-height: 42px;
+        font-size: var(--size, 1rem);
+        font-weight: 400;
+        transition: 0.8s;
+        background-size: 280% auto;
+        background-image: linear-gradient(
+            325deg,
+            var(--btn-bg-2) 0%,
+            var(--btn-bg-1) 55%,
+            var(--btn-bg-2) 90%
+        );
+        border: none;
+        border-radius: var(--radii);
+        color: var(--btn-bg-color);
+        box-shadow:
+            0px 0px 20px rgba(71, 184, 255, 0.5),
+            0px 5px 5px -1px rgba(58, 125, 233, 0.25),
+            inset 4px 4px 8px rgba(175, 230, 255, 0.5),
+            inset -4px -4px 8px rgba(19, 95, 216, 0.35);
+        }
+
+        .boton-menu:hover {
+        background-position: right top;
+        }
+
+        .boton-menu:is(:focus, :focus-visible, :active) {
+        outline: none;
+        box-shadow:
+            0 0 0 3px var(--btn-bg-color),
+            0 0 0 6px var(--btn-bg-2);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+        .boton-menu {
+            transition: linear;
+        }
+        }
+
+
+
+        .logo {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+            padding: 5px 10px;
+
+        }
+
+         .navegacion li {
+            list-style: none;
+            align-items: center;
+            justify-content: center;
+            padding: 0px 30px;
+            color: white;
+            border-radius: 40px;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+
+ 
+
+.section-posts, .section-main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 10%,
+        black 15%,
+        black 85%,
+        transparent 90%
+    );
+}
+
+article {
+    width: 80%;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    /* From https://css.glass */
+    background: rgba(163, 206, 241, 0.14);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.3px);
+    -webkit-backdrop-filter: blur(6.3px);
+    padding: 20px;
+    margin: 20px;
+    color: #E7ECEF;
+    animation: parallax-scroll 0.5s ease-out;
+    transition: filter 0.5s ease;
+}
+
+@keyframes parallax-scroll {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+article:hover {
+    filter:blur(0px)
+}
+
+article img {
+    justify-self: center;
+    grid-column: 1;
+    width: 100%;
+    height: auto;
+    max-width: 425px;
+    max-height: 425px;
+    border-radius: 20px;
+    margin-top: 15px;
+}
+
+article hgroup {
+    display: flex;
+    justify-self: center;
+    grid-column: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+article hgroup h1 {
+    font-family: 'Sen', sans-serif;
+    font-size: 2.5rem;
+    color: #E7ECEF;
+}
+
+article hgroup h2 {
+    font-family: 'Sen', sans-serif;
+    font-size: 1.5rem;
+    color: #E7ECEF;
+}
+
+
+article p {
+    grid-column: 2;
+    font-family: 'Sen', sans-serif;
+    font-size: 1.1rem;
+    color: #E7ECEF;
+    line-height: 1.5;
+}
+
+article footer {
+    display: flex;
+    grid-column: 2;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+article footer img {
+    justify-content: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    width: 24px;
+    height: 24px;
+    margin-bottom : 15px;
+    margin-right: 5px;
+}
+
+article time {
+    font-size: 0.9rem;
+    color: #E7ECEF;
+    font-family: 'Sen', sans-serif;
+    justify-self: center;
+    grid-column: 1;
+}
+
+.seccion-posts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+    height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.about-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 20px;
+    padding: 20px;
+    height: 70vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 10%,
+        black 15%,
+        black 85%,
+        transparent 90%
+    );
+}
+
+/* Personalizar la scrollbar */
+.seccion-posts::-webkit-scrollbar, .about-section::-webkit-scrollbar {
+    width: 12px;
+}
+
+.seccion-posts::-webkit-scrollbar-track, .about-section::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+
+.seccion-posts::-webkit-scrollbar-thumb, .about-section::-webkit-scrollbar-thumb {
+    background: #6096BA;
+    border-radius: 10px;
+}
+
+.seccion-posts::-webkit-scrollbar-thumb:hover, .about-section::-webkit-scrollbar-thumb:hover {
+    background: #274C77;
+}
+
+.seccion-posts::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+}
+
+
+
+.icono-contacto {
+    display: inline-flex;
+    align-self: center;
+    vertical-align: center;
+    justify-self: center;
+    margin-right: 10px;
+    margin-bottom: 15px;
+    gap:10px;
+    min-width: 24px;
+    min-height: 24px;
+    max-width: 44px;
+    max-height: 44px;
+}
+
+.texto-contacto{
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: left;
+    align-self: center;
+    vertical-align: center;
+    gap: 10px;
+    font-family: 'Sen', sans-serif;
+    color: #E7ECEF;
+}
+
+.lista-contacto {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    vertical-align: center;
+    gap: 15px;
+}
+
+.frase-contacto {
+    font-family: 'Sen', sans-serif;
+    color: #E7ECEF;
+    font-size: 1.5rem;
+    justify-self: center;
+    align-self: center;
+}
+
+/* Grid solo para about.html */
+div.about-page {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-rows: auto auto 1fr;
+}
+
+div.about-page .about-section {
+  grid-column: 1;
+  grid-row: 3;
+}
+
+div.about-page .lateral {
+  grid-column: 2;
+  grid-row: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-self: center;
+  gap: 20px;
+  padding: 20px;
+  border-radius: 16px;
+  margin: 40px;
+  height: 65vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-width: 250px;
+  max-width: none;
+
+    /* From https://css.glass */
+    background: rgba(39, 76, 119, 0.22);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(4.5px);
+    -webkit-backdrop-filter: blur(4.5px);
+}
+
+div.about-page .lateral::-webkit-scrollbar {
+  width: 12px;
+}
+
+div.about-page .lateral::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+div.about-page .lateral::-webkit-scrollbar-thumb {
+  background: #6096BA;
+  border-radius: 10px;
+}
+
+div.about-page .lateral::-webkit-scrollbar-thumb:hover {
+  background: #274C77;
+}
+
+div.about-page .lateral::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: transparent;
+}
+
+
+.frase-lateral {
+    font-family: 'Sen', sans-serif;
+    color: #E7ECEF;
+    font-size: 1.2rem;
+    text-align: center;
+
+    /* From https://css.glass */
+    background: rgba(163, 206, 241, 0.14);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(6.3px);
+    -webkit-backdrop-filter: blur(6.3px);
+    padding: 20px;
+    border-radius: 16px;
+}
+
+blockquote {
+    margin: 0;
+    max-width: 300px;
+}
+
+blockquote h2 {
+    margin: 0;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #E7ECEF;
+    font-family: 'Sen', sans-serif;
+}    
+
+blockquote p {
+    margin: 0;
+    text-align: center;
+    font-size: 0.8rem;
+    color: #E7ECEF;
+    font-family: 'Sen', sans-serif;
+}
+
+.img-curioso {
+    width: 100%;
+    height: auto;
+    max-width: 200px;
+    border-radius: 20px;
+}
